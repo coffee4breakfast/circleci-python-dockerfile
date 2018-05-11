@@ -1,0 +1,65 @@
+{
+    "cflags": [
+        "-Os",
+        "-pipe",
+        "-ftree-vectorize",
+        "-fstack-protector-strong",
+        "-D_FORTIFY_SOURCE=2",
+        "-DNDEBUG"
+    ],
+    "pythonConfigureOptions": [
+        "--enable-shared",
+        "--disable-dependency-tracking",
+        "--enable-ipv6",
+        "--enable-unicode=ucs4",
+        "--with-computed-gotos",
+        "--with-fpectl"
+    ],
+    "systemPackages": ["libhdf5-dev"],
+    "configs": [
+        {
+            "baseImage": "circleci/buildpack-deps:xenial",
+            "imageTag": "2.7.11-xenial",
+            "pythonVersion": "2.7.11"
+        },
+        {
+            "baseImage": "circleci/buildpack-deps:jessie",
+            "imageTag": "2.7.11-jessie",
+            "pythonVersion": "2.7.11"
+        },
+        {
+            "baseImage": "circleci/buildpack-deps:xenial",
+            "imageTag": "2.7.15-xenial",
+            "pythonVersion": "2.7.15"
+        },
+        {
+            "baseImage": "circleci/buildpack-deps:jessie",
+            "imageTag": "2.7.15-jessie",
+            "pythonVersion": "2.7.15"
+        },
+        {
+            "baseImage": "circleci/buildpack-deps:xenial",
+            "imageTag": "2.7.11-xenial/psqlclient",
+            "pythonVersion": "2.7.11",
+            "systemPackages": ["postgresql-client"]
+        },
+        {
+            "baseImage": "circleci/buildpack-deps:jessie",
+            "imageTag": "2.7.11-jessie/psqlclient",
+            "pythonVersion": "2.7.11",
+            "systemPackages": ["postgresql-client"]
+        },
+        {
+            "baseImage": "circleci/buildpack-deps:xenial",
+            "imageTag": "2.7.15-xenial/psqlclient",
+            "pythonVersion": "2.7.15",
+            "systemPackages": ["postgresql-client"]
+        },
+        {
+            "baseImage": "circleci/buildpack-deps:jessie",
+            "imageTag": "2.7.15-jessie/psqlclient",
+            "pythonVersion": "2.7.15",
+            "systemPackages": ["postgresql-client"]
+        }
+    ]
+}

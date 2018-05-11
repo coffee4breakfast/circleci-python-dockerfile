@@ -1,0 +1,75 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "pythonConfigureOptions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 0,
+        "uniqueItems": true
+      },
+      "cflags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 0,
+        "uniqueItems": true
+      },
+      "systemPackages": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 0,
+        "uniqueItems": true
+      },
+      "configs": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "baseImage": {
+              "type": "string"
+            },
+            "imageTag": {
+              "type": "string"
+            },
+            "pythonVersion": {
+              "type": "string",
+              "pattern": "^([0-9]+[.])?([0-9]+[.])?([*]|[0-9]+)$"
+            },
+            "systemPackages": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "pythonConfigureOptions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            },
+            "cflags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 0,
+              "uniqueItems": true
+            }
+          },
+          "required": ["baseImage", "pythonVersion", "imageTag"]
+        },
+        "minItems": 1
+      }
+    },
+    "required": ["configs"]
+  }
