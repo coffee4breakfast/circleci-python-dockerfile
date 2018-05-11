@@ -15,8 +15,9 @@ RUN git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT \
 
 ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 
-RUN pyenv install $PYTHON_VERSION \
- && pyenv global $PYTHON_VERSION \
- && rm -f $PYENV_ROOT/cache/*
+RUN CFLAGS="-O2" \
+  pyenv install $PYTHON_VERSION \
+  && pyenv global $PYTHON_VERSION \
+  && rm -f $PYENV_ROOT/cache/*
 
 RUN pip install --no-cache-dir --upgrade setuptools pip
